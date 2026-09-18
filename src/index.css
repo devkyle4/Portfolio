@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+::selection {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.social-btn {
+  border-color: var(--brand, #000000);
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.social-btn:hover,
+.social-btn:focus-visible {
+  background-color: var(--brand, #000000);
+  color: #ffffff;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
