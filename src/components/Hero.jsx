@@ -17,6 +17,14 @@ const profileModules = import.meta.glob('../assets/profile/*.{png,jpg,jpeg,webp,
 const sortedProfileEntries = Object.entries(profileModules).sort(([a], [b]) => a.localeCompare(b))
 const profilePhoto = sortedProfileEntries.length > 0 ? sortedProfileEntries[0][1] : null
 
+// Drop a PDF into src/assets/data/ — it becomes the "CV (PDF)" link here.
+const cvModules = import.meta.glob('../assets/data/*.{pdf,PDF}', {
+  eager: true,
+  import: 'default',
+})
+const sortedCvEntries = Object.entries(cvModules).sort(([a], [b]) => a.localeCompare(b))
+const cvFile = sortedCvEntries.length > 0 ? sortedCvEntries[0][1] : null
+
 const SOCIALS = [
   { label: 'LinkedIn', href: '#', Icon: LinkedInIcon, color: '#0A66C2' },
   { label: 'X (Twitter)', href: '#', Icon: XIcon, color: '#000000' },
@@ -76,13 +84,22 @@ export default function Hero() {
                 <Icon />
               </a>
             ))}
-            <a
-              href="#"
-              className="inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase hover:opacity-60 transition-opacity pl-3"
-            >
-              <span>CV (PDF)</span>
-              <ArrowOutwardIcon />
-            </a>
+            {cvFile ? (
+              <a
+                href={cvFile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase hover:opacity-60 transition-opacity pl-3"
+              >
+                <span>CV (PDF)</span>
+                <ArrowOutwardIcon />
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase text-black/30 pl-3 cursor-default">
+                <span>CV (PDF)</span>
+                <ArrowOutwardIcon />
+              </span>
+            )}
           </div>
         </div>
       </div>
