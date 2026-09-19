@@ -12,6 +12,8 @@ export default function Contact() {
       <div className="pt-2 flex flex-wrap items-center">
         <a
           href={`mailto:${CONTACT_EMAIL}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-black text-white px-6 py-3 border border-black text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors inline-flex items-center gap-2"
         >
           <MailIcon />

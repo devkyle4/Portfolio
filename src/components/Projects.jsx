@@ -1,24 +1,47 @@
 const PROJECTS = [
   {
-    title: 'Autonomous Pick-and-Place Robotic Arm',
-    meta: '2024 — Harcourt University Robotics Lab',
+    title: 'iComplex Shop',
+    meta: 'icomplex.tlsgh.com',
     description:
-      'A 4-axis robotic arm built to demonstrate closed-loop control and sensor fusion, used as a teaching rig for mechatronics students working through kinematics and PID tuning.',
-    href: '#',
+      'A retail POS and inventory management platform built to streamline sales, product management, and stock tracking.',
+    href: 'https://icomplex.tlsgh.com',
   },
   {
-    title: 'Solar-Assisted HVAC Efficiency Study',
-    meta: '2023 — Independent research',
+    title: 'Nsu Pa ERP',
+    meta: 'icomplex.tlsgh.com',
     description:
-      'A thermodynamics-driven investigation into hybrid solar/HVAC systems for campus buildings, modelling load reduction and payback period under variable climate conditions.',
-    href: '#',
+      'An enterprise resource planning platform designed to digitize and manage water distribution operations.',
+    href: 'https://icomplex.tlsgh.com',
   },
   {
-    title: 'Modular Mechatronics Teaching Rig',
-    meta: '2023 — Harcourt University',
+    title: 'Midpoint',
+    meta: 'midpoint.tlsgh.com',
     description:
-      'A reconfigurable benchtop apparatus for demonstrating control systems concepts to undergraduate classes, built to accompany the YouTube course series.',
-    href: '#',
+      'A community-driven news and media platform bringing together content across technology, business, health, sports, entertainment, and more.',
+    href: 'https://midpoint.tlsgh.com',
+  },
+  {
+    title: 'PDFMaster',
+    meta: 'icomplex.tlsgh.com',
+    description:
+      'A browser-based document utility for editing and merging PDFs, as well as resizing and converting images.',
+    href: 'https://icomplex.tlsgh.com',
+  },
+  {
+    title: 'Invoice Generator',
+    meta: 'icomplex.tlsgh.com',
+    description: 'A lightweight web application for creating and generating digital invoices.',
+    href: 'https://icomplex.tlsgh.com',
+  },
+  {
+    title: 'Akan (Twi) TTS & ASR',
+    description:
+      'Neural text-to-speech and automatic speech recognition systems for Akan (Twi), built to expand digital inclusion for a low-resource language through natural speech synthesis and transcription.',
+  },
+  {
+    title: 'Obaapayin',
+    description:
+      'A maternal health chatbot for Twi-speaking mothers, supporting both audio input and output so users can ask health questions and receive guidance by voice.',
   },
 ]
 
@@ -35,19 +58,27 @@ export default function Projects() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
               <div className="md:col-span-4">
                 <h3 className="font-serif text-2xl font-normal">{project.title}</h3>
-                <span className="text-xs font-mono text-black/50 block mt-1">{project.meta}</span>
+                {project.meta && <span className="text-xs font-mono text-black/50 block mt-1">{project.meta}</span>}
               </div>
               <div className="md:col-span-5">
                 <p className="text-sm text-black/75 leading-relaxed">{project.description}</p>
               </div>
               <div className="md:col-span-3 text-left md:text-right pt-2 md:pt-0">
-                <a
-                  href={project.href}
-                  className="inline-flex items-center text-xs uppercase tracking-widest font-semibold hover:opacity-60 transition-opacity"
-                >
-                  <span>View Project</span>
-                  <span className="ml-1 text-base leading-none">→</span>
-                </a>
+                {project.href ? (
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-xs uppercase tracking-widest font-semibold hover:opacity-60 transition-opacity"
+                  >
+                    <span>View Project</span>
+                    <span className="ml-1 text-base leading-none">→</span>
+                  </a>
+                ) : (
+                  <span className="inline-block text-xs uppercase tracking-widest font-semibold text-black/30 cursor-default">
+                    No link yet
+                  </span>
+                )}
               </div>
             </div>
           </article>
