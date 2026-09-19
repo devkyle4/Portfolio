@@ -22,6 +22,13 @@ const PUBLICATIONS = [
     status: 'under-review',
   },
   {
+    title:
+      'From Plastic Waste Awareness to Circular Action: A Systematic Review of Persuasive Technologies for Sustainable Plastic Circularity.',
+    authors: 'Mensah, M. A., Oyibo, K., Rahman, P., Kwasi, E., & Adaji, I.',
+    source: 'Sustainable Development (2026).',
+    status: 'under-review',
+  },
+  {
     title: 'Developing an Akan Text-to-Speech System: Corpus Creation, Neural Modeling, and Digital Inclusion in Ghana.',
     authors: 'Wiafe, I., Kwasi, E., et al.',
     source: 'SOLCON V, University of Ghana (2025).',

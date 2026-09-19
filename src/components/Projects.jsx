@@ -43,6 +43,13 @@ const PROJECTS = [
     description:
       'A maternal health chatbot for Twi-speaking mothers, supporting both audio input and output so users can ask health questions and receive guidance by voice.',
   },
+  {
+    title: 'MoMo Analytics',
+    meta: 'streamlit.app',
+    description:
+      'A data-quality baseline, SQL-driven analysis, and an interactive Streamlit dashboard for a mobile-money transaction dataset, surfacing fraud patterns, sender concentration, and customer segments.',
+    href: 'https://momo-analytics-8qskczz5fvry64zrxzpsfi.streamlit.app/',
+  },
 ]
 
 export default function Projects() {
