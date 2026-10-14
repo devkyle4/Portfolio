@@ -67,10 +67,10 @@ export default function Hero() {
 
           <p className="font-sans text-black/80 text-base sm:text-lg leading-relaxed font-light max-w-2xl">
             I’m a software developer, researcher, and curious builder who enjoys turning ideas into useful things.
-            I’m co-founder of Techline Systems Ghana, where I help build and ship platforms like iComplex and Midpoint.
-            I’m passionate about AI, education, emerging technologies, and solving real-world problems through technology.
-            Along the way, I’ve dabbled in areas such as persuasive design, human-computer interaction (HCI), speech technologies including ASR and TTS, and large language models (LLMs).
-            When I’m not building or researching, I enjoy learning, experimenting with new ideas, and, most importantly, building communities and bringing people together around shared ideas and opportunities.
+            I’m co-founder of Techline Systems Ghana, where I build solutions for small businesses. My resarch interest is at the intersection of persuasive design, human-computer interaction (HCI), speech technologies including ASR and TTS, and large language models (LLMs).
+            I enjoy learning, experimenting with new ideas, and, most importantly, building communities and bringing people together around shared ideas and opportunities.
+
+
           </p>
 
           <div className="pt-2 flex items-center gap-3">
