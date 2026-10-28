@@ -12,9 +12,9 @@ function App() {
       <Header />
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-14 sm:pt-20 pb-28">
         <Hero />
-        <Projects />
         <Publications />
         <Media />
+        <Projects />
         <Contact />
       </main>
       <Footer />

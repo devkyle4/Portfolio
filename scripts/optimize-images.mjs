@@ -1,5 +1,5 @@
-// Resizes and compresses images dropped into src/assets/media/ and
-// src/assets/profile/. Runs automatically before `npm run dev` and
+// Resizes and compresses images dropped into src/assets/media/ (including
+// its volunteering/ and other/ subfolders) and src/assets/profile/. Runs automatically before `npm run dev` and
 // `npm run build` (see predev/prebuild in package.json), so any photo
 // you add gets optimized without a manual step.
 //
@@ -18,6 +18,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
 const TARGETS = [
   { dir: path.join(root, 'src/assets/media'), maxWidth: 1800, quality: 82 },
+  { dir: path.join(root, 'src/assets/media/volunteering'), maxWidth: 1800, quality: 82 },
+  { dir: path.join(root, 'src/assets/media/other'), maxWidth: 1800, quality: 82 },
   { dir: path.join(root, 'src/assets/profile'), maxWidth: 1000, quality: 85 },
 ]
 

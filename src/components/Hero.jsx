@@ -53,7 +53,7 @@ export default function Hero() {
             </div>
           )}
           <p className="mt-4 font-serif text-xs italic text-black/70 max-w-xs">
-            Evans Kwasi — Computer Science Researcher &amp; Developer.
+            Evans Kwasi — Researcher &amp; Developer.
           </p>
         </div>
 

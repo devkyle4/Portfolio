@@ -1,11 +1,17 @@
 import { ImagePlaceholderIcon } from './icons'
 
-// Drop image files into src/assets/media/ — they show up here automatically.
-// See src/assets/media/README.md for details.
+// Drop image files into src/assets/media/volunteering/ or src/assets/media/other/ —
+// they show up here automatically under that heading. Images left directly in
+// src/assets/media/ are shown under "Other". See src/assets/media/README.md.
 const mediaModules = import.meta.glob(
-  '../assets/media/*.{png,jpg,jpeg,webp,gif,avif,PNG,JPG,JPEG,WEBP,GIF,AVIF}',
+  '../assets/media/**/*.{png,jpg,jpeg,webp,gif,avif,PNG,JPG,JPEG,WEBP,GIF,AVIF}',
   { eager: true, import: 'default' },
 )
+
+const CATEGORIES = [
+  { id: 'volunteering', title: 'Volunteering' },
+  { id: 'other', title: 'Other' },
+]
 
 const ROTATIONS = ['-rotate-3', 'rotate-2', 'rotate-1', '-rotate-2', 'rotate-3', '-rotate-1']
 
@@ -18,13 +24,21 @@ function toCaption(path) {
     .replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
-const uploadedMedia = Object.entries(mediaModules)
-  .sort(([a], [b]) => a.localeCompare(b))
-  .map(([path, url], index) => ({
-    url,
-    caption: toCaption(path) || 'Untitled',
-    ref: `No. ${String(index + 1).padStart(2, '0')}`,
-  }))
+function toCategory(path) {
+  return path.includes('/media/volunteering/') ? 'volunteering' : 'other'
+}
+
+const mediaGroups = CATEGORIES.map((category) => ({
+  ...category,
+  items: Object.entries(mediaModules)
+    .filter(([path]) => toCategory(path) === category.id)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([path, url], index) => ({
+      url,
+      caption: toCaption(path) || 'Untitled',
+      ref: `No. ${String(index + 1).padStart(2, '0')}`,
+    })),
+})).filter((group) => group.items.length > 0)
 
 const PLACEHOLDER_ITEMS = [
   { caption: 'Add media — e.g. a robotics lab or workshop photo', ref: 'ARCHIVE REF. 2024-01' },
@@ -33,7 +47,7 @@ const PLACEHOLDER_ITEMS = [
 ]
 
 export default function Media() {
-  const hasUploads = uploadedMedia.length > 0
+  const hasUploads = mediaGroups.length > 0
 
   return (
     <section id="media" className="py-16 sm:py-20 border-b border-black/10">
@@ -42,25 +56,34 @@ export default function Media() {
       </div>
 
       {hasUploads ? (
-        <div className="columns-2 sm:columns-3 lg:columns-4 gap-6 sm:gap-8">
-          {uploadedMedia.map((item, index) => (
-            <figure
-              key={item.url}
-              className={`relative mb-6 sm:mb-8 break-inside-avoid bg-white border border-black/15 p-2 pb-3 shadow-sm transition-transform duration-300 hover:z-10 hover:scale-105 hover:rotate-0 hover:shadow-xl ${ROTATIONS[index % ROTATIONS.length]}`}
-            >
-              <div className="overflow-hidden bg-black/5">
-                <img
-                  src={item.url}
-                  alt={item.caption}
-                  loading="lazy"
-                  className="w-full h-auto object-cover"
-                />
+        <div className="space-y-12 sm:space-y-16">
+          {mediaGroups.map((group) => (
+            <div key={group.id}>
+              <h3 className="font-serif italic text-xl sm:text-2xl mb-6 sm:mb-8 pb-2 border-b border-black/10">
+                {group.title}
+              </h3>
+              <div className="columns-2 sm:columns-3 lg:columns-4 gap-6 sm:gap-8">
+                {group.items.map((item, index) => (
+                  <figure
+                    key={item.url}
+                    className={`relative mb-6 sm:mb-8 break-inside-avoid bg-white border border-black/15 p-2 pb-3 shadow-sm transition-transform duration-300 hover:z-10 hover:scale-105 hover:rotate-0 hover:shadow-xl ${ROTATIONS[index % ROTATIONS.length]}`}
+                  >
+                    <div className="overflow-hidden bg-black/5">
+                      <img
+                        src={item.url}
+                        alt={item.caption}
+                        loading="lazy"
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
+                    <figcaption className="flex items-baseline justify-between gap-2 text-[10px] pt-2">
+                      <span className="font-serif italic text-black truncate">{item.caption}</span>
+                      <span className="font-mono text-black/40 shrink-0">{item.ref}</span>
+                    </figcaption>
+                  </figure>
+                ))}
               </div>
-              <figcaption className="flex items-baseline justify-between gap-2 text-[10px] pt-2">
-                <span className="font-serif italic text-black truncate">{item.caption}</span>
-                <span className="font-mono text-black/40 shrink-0">{item.ref}</span>
-              </figcaption>
-            </figure>
+            </div>
           ))}
         </div>
       ) : (
