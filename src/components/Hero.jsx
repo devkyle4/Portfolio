@@ -37,7 +37,8 @@ export default function Hero() {
   return (
     <section id="hero" className="border-b border-black/10 pb-16 sm:pb-24">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-        <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <div className="lg:col-span-4 flex flex-col items-center lg:items-start">
+          <div className="flex flex-col items-center text-center max-w-xs">
           {profilePhoto ? (
             <div className="w-44 h-44 sm:w-48 sm:h-48 rounded-full overflow-hidden border border-black bg-white">
               <img
@@ -52,9 +53,13 @@ export default function Hero() {
               <span className="text-[10px] uppercase tracking-widest px-6 text-center">Add photo</span>
             </div>
           )}
-          <p className="mt-4 font-serif text-xs italic text-black/70 max-w-xs">
-            Evans Kwasi — Researcher &amp; Developer.
+          <p className="mt-4 font-serif text-xs italic text-black/70">
+            Evans Kwasi — Researcher &amp; Developer
           </p>
+          <p className="mt-4 font-sans text-sm text-black/70 leading-relaxed font-light">
+            My research interest is at the intersection of persuasive design, HCI, ASR, Speech Synthesis, and large language models (LLMs).
+          </p>
+          </div>
         </div>
 
         <div className="lg:col-span-8 flex flex-col justify-start space-y-6">
@@ -67,10 +72,7 @@ export default function Hero() {
 
           <p className="font-sans text-black/80 text-base sm:text-lg leading-relaxed font-light max-w-2xl">
             I’m a software developer, researcher, and curious builder who enjoys turning ideas into useful things.
-            I’m co-founder of Techline Systems Ghana, where I build solutions for small businesses. My resarch interest is at the intersection of persuasive design, human-computer interaction (HCI), speech technologies including ASR and TTS, and large language models (LLMs).
-            I enjoy learning, experimenting with new ideas, and, most importantly, building communities and bringing people together around shared ideas and opportunities.
-
-
+            I’m co-founder of Techline Systems Ghana, where I build solutions for small businesses. I enjoy learning, experimenting with new ideas, and, most importantly, building communities and bringing people together around shared ideas and opportunities.
           </p>
 
           <div className="pt-2 flex items-center gap-3">

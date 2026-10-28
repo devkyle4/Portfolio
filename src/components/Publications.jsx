@@ -5,21 +5,15 @@ const PUBLICATIONS = [
     authors: 'Mensah, M. A., Kwasi, E., Abdulmawjood, M., & Oyibo, K.',
     source:
       'Proceedings of the 34th ACM Conference on User Modeling, Adaptation and Personalization, pp. 263–272 (June 2026).',
-    href: '#',
+    href: 'https://doi.org/10.1145/3774935.3806188',
   },
-  {
-    title: 'Neural Machine Translation for Maternal Health Communication in Low-Resource Language: Akan-English.',
-    authors:
-      'Wiafe, I., Wiafe-Akenten, A. N., Kwasi, E., Ekpezu, O. A., Appati, J. K., Odame, G., Yeboah, F., Mensah, M. A., Abdulai, J.-D., & Winful, F. B. P.',
-    source: 'Language Resources and Evaluation [Special Issue: Less-Resourced Languages].',
-    status: 'under-review',
-  },
+
   {
     title: 'A Parallel English–Akan Maternal Health Dataset to Support Machine Translation and Text-to-Speech Systems.',
     authors:
       'Wiafe, I., Ekpezu, A. O., Winful, F. B. P., Wiafe-Akenten, A. N., Mensah, M. A., Semanyoh, N., Salihs, S. A., Kwasi, E., Appati, J. K., Odame, G., Osei, K. O., & Yeboah, F. E.',
     source: 'Data in Brief, Elsevier.',
-    status: 'under-review',
+    href: 'https://doi.org/10.1016/j.dib.2026.113088',
   },
   {
     title:
